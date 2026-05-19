@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 22, 2025 at 01:28 PM
--- Server version: 8.0.41
--- PHP Version: 8.3.22
+-- Host: localhost
+-- Generation Time: May 19, 2026 at 11:49 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,7 +42,8 @@ INSERT INTO `admin` (`id`, `email`, `password`, `created_at`) VALUES
 (3, 'test@gmail.com', 'asdf', '2024-03-23 17:04:16'),
 (4, 'mail@mail.com', '$2y$10$trF83ONUwPY3eWILqAmm6O91r0BeQDXOYGYzpjj5padlxJ66NGJQ.', '2024-03-24 05:00:21'),
 (5, 'balaaadhamu45@gmail.com', '$2y$10$ptbrAuwTroYmB9Qmo9HNGea4qPNs9SFUVfeqkvGXtblzexwOJqzBq', '2025-07-08 21:46:01'),
-(6, 'umar@lincoln.edu.ng', '$2y$10$SGIMftNXeZi1zhLA1/jbruw8ZkolGuZC1M7HmFi0PRHdaQQ1flj8m', '2025-07-09 09:29:43');
+(6, 'umar@lincoln.edu.ng', '$2y$10$SGIMftNXeZi1zhLA1/jbruw8ZkolGuZC1M7HmFi0PRHdaQQ1flj8m', '2025-07-09 09:29:43'),
+(7, 'admin@lincoln.com', '$2y$10$cFFCQ1L9LwGv6Q4pntGxROUf4AfgkkUhVti5ZbMHTGQlYYlwOnzg.', '2026-04-30 12:26:27');
 
 -- --------------------------------------------------------
 
@@ -51,17 +52,17 @@ INSERT INTO `admin` (`id`, `email`, `password`, `created_at`) VALUES
 --
 
 CREATE TABLE `external_internship` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `school` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fieldStudy` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `skill` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `internshipLetterPath` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `school` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `fieldStudy` varchar(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `internshipLetterPath` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -78,16 +79,16 @@ INSERT INTO `external_internship` (`id`, `name`, `school`, `department`, `fieldS
 --
 
 CREATE TABLE `external_membership` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `school` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fieldStudy` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `skill` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `school` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `fieldStudy` varchar(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -97,16 +98,16 @@ CREATE TABLE `external_membership` (
 --
 
 CREATE TABLE `internal_internship` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fieldStudy` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `skill` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `internship_letter` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `fieldStudy` varchar(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `internship_letter` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -123,11 +124,11 @@ INSERT INTO `internal_internship` (`id`, `name`, `department`, `fieldStudy`, `sk
 --
 
 CREATE TABLE `project_information` (
-  `id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(5000) COLLATE utf8mb4_general_ci NOT NULL,
-  `author` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(5000) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -142,14 +143,29 @@ INSERT INTO `project_information` (`id`, `title`, `description`, `author`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project_media`
+--
+
+CREATE TABLE `project_media` (
+  `id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `file_type` enum('image','video') NOT NULL,
+  `order_index` int(11) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `project_payment`
 --
 
 CREATE TABLE `project_payment` (
-  `id` int NOT NULL,
-  `title` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fee` varchar(11) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `title` varchar(25) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `fee` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -166,15 +182,15 @@ INSERT INTO `project_payment` (`id`, `title`, `description`, `fee`) VALUES
 --
 
 CREATE TABLE `project_students` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `studentid` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `status_1` int NOT NULL DEFAULT '0',
-  `status_2` int NOT NULL DEFAULT '0',
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `studentid` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `status_1` int(11) NOT NULL DEFAULT 0,
+  `status_2` int(11) NOT NULL DEFAULT 0,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -195,12 +211,12 @@ INSERT INTO `project_students` (`id`, `name`, `studentid`, `email`, `department`
 --
 
 CREATE TABLE `project_student_payments` (
-  `id` int NOT NULL,
-  `rowid` int NOT NULL,
-  `student_id` varchar(112) COLLATE utf8mb4_general_ci NOT NULL,
-  `receipt_path` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `payment_status` enum('paid','pending') COLLATE utf8mb4_general_ci DEFAULT 'pending',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `rowid` int(11) NOT NULL,
+  `student_id` varchar(112) NOT NULL,
+  `receipt_path` varchar(255) NOT NULL,
+  `payment_status` enum('paid','pending') DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -217,13 +233,39 @@ INSERT INTO `project_student_payments` (`id`, `rowid`, `student_id`, `receipt_pa
 --
 
 CREATE TABLE `project_uploads` (
-  `id` int NOT NULL,
-  `studentid` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(2555) COLLATE utf8mb4_general_ci NOT NULL,
-  `document` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `gitlink` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `studentid` varchar(25) NOT NULL,
+  `description` varchar(2555) NOT NULL,
+  `document` varchar(255) NOT NULL,
+  `gitlink` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `psa_projects`
+--
+
+CREATE TABLE `psa_projects` (
+  `id` int(11) NOT NULL,
+  `studentid` varchar(100) NOT NULL,
+  `student_name` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `supervisor_name` varchar(255) DEFAULT NULL,
+  `project_link` varchar(255) DEFAULT NULL,
+  `report_file` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_approved` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `psa_projects`
+--
+
+INSERT INTO `psa_projects` (`id`, `studentid`, `student_name`, `department`, `title`, `supervisor_name`, `project_link`, `report_file`, `created_at`, `is_approved`) VALUES
+(2, '123', 'Test Student', 'Computer Software Engineering', 'Test PSA', 'Dr. Smith', 'https://the-dev-space.vercel.app/discover', 'psadocs/test.pdf', '2026-05-14 13:42:38', 1);
 
 -- --------------------------------------------------------
 
@@ -232,13 +274,13 @@ CREATE TABLE `project_uploads` (
 --
 
 CREATE TABLE `staff_membership` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `focusArea` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `focusArea` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -248,15 +290,15 @@ CREATE TABLE `staff_membership` (
 --
 
 CREATE TABLE `student_membership` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fieldStudy` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `skill` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `fieldStudy` varchar(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -266,16 +308,16 @@ CREATE TABLE `student_membership` (
 --
 
 CREATE TABLE `student_projects` (
-  `id` int NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `document` varchar(225) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `link` varchar(225) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `student` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `category` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `archive` tinyint(1) NOT NULL DEFAULT '0'
+  `id` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `document` varchar(225) DEFAULT NULL,
+  `link` varchar(225) DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `student` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `category` varchar(100) NOT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -332,6 +374,12 @@ ALTER TABLE `project_information`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `project_media`
+--
+ALTER TABLE `project_media`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `project_payment`
 --
 ALTER TABLE `project_payment`
@@ -353,6 +401,12 @@ ALTER TABLE `project_student_payments`
 -- Indexes for table `project_uploads`
 --
 ALTER TABLE `project_uploads`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `psa_projects`
+--
+ALTER TABLE `psa_projects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -381,73 +435,85 @@ ALTER TABLE `student_projects`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `external_internship`
 --
 ALTER TABLE `external_internship`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `external_membership`
 --
 ALTER TABLE `external_membership`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `internal_internship`
 --
 ALTER TABLE `internal_internship`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `project_information`
 --
 ALTER TABLE `project_information`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `project_media`
+--
+ALTER TABLE `project_media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `project_payment`
 --
 ALTER TABLE `project_payment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `project_students`
 --
 ALTER TABLE `project_students`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project_student_payments`
 --
 ALTER TABLE `project_student_payments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `project_uploads`
 --
 ALTER TABLE `project_uploads`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `psa_projects`
+--
+ALTER TABLE `psa_projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staff_membership`
 --
 ALTER TABLE `staff_membership`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student_membership`
 --
 ALTER TABLE `student_membership`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student_projects`
 --
 ALTER TABLE `student_projects`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
